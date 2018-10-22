@@ -1,0 +1,7 @@
+每个类都使用Object作为超类。所有对象（包括数组）
+
+equals
+它是空的自反：对于任何非空的参考价值x，x.equals(x)应该返回true。 
+它是空的对称的：对于任何非空的参考值x和y，x.equals(y)应该返回true当且仅当y.equals(x)返回true。 
+它是空的传递：对于任何非空的参考值x，y，和z，如果x.equals(y)返回true和y.equals(z)返回true，然后x.equals(z)应该返回true。 
+它是空的一致的：对于任何非空的参考值x和y，多次调用x.equals(y)始终返回true或始终返回false，没有提供信息用于equals比较对象被修改。 

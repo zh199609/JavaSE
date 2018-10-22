@@ -1,0 +1,5 @@
+遍历集合的方式有以下几种
+1.Iterator(最常用)
+2.ListIterator（List迭代器）
+3.Enumeration
+4.foreach
