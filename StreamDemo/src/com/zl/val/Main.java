@@ -18,5 +18,9 @@ public class Main {
         VerifyAnnotationMyLimit annotationMyLimit = new VerifyAnnotationMyLimit(sysUser);
         StringBuilder builder = annotationMyLimit.getBuilder();
         System.err.println("verify结果："+builder);
+        
+    }
+    public void test() {
+        this.getClass().getResourceAsStream("/kafka.properties");
     }
 }
