@@ -48,11 +48,13 @@ public class LambdaTest {
     @Test
     public void test1() {
 
-        Target target1 = new Target(10);
+        Target target1 = new Target(190);
         Target target2 = new Target(100);
         // 引用实例方法
-        MyInterface ins1 = Target::compareTo;
+        MyInterface ins1 = Target::compare;
         System.out.println(ins1.compare(target1, target2));
+        
+        MyInterface.printHello();
     }
 
 }
