@@ -6,12 +6,15 @@ package com.zl.entity;
 import java.util.Arrays;
 import java.util.Date;
 
+import com.zl.val.MyVal;
+
 public class SysUser {
 
     private Long id;
 
     private String userName;
-
+    
+    @MyVal(description="密码",MaxNum=7)
     private String userPassword;
 
     private int age;
