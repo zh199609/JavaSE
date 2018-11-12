@@ -51,6 +51,16 @@ MyInterface ins1 = content::concat;
 System.out.println(ins1.transform("def"));// abcdef
 
 
+jdk中的函数式接口。。
+java.lang.Runnable,
+
+java.awt.event.ActionListener, 
+
+java.util.Comparator,
+
+java.util.concurrent.Callable
+
+java.util.function包下的接口，如Consumer、Predicate、Supplier等
 
 
 
