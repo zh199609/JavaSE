@@ -30,11 +30,11 @@ public class StreamTest {
          * System.err.println(collect);
          */
 
-        /*
-         * List<Integer> collect2 =
-         * list.stream().map(SysUser::getAge).collect(Collectors.toList());
-         * System.err.println(collect2);
-         */
+       
+          /*List<Integer> collect2 =
+          list.stream().map(SysUser::getAge).collect(Collectors.toList());
+          System.err.println(collect2);/*
+         
 
         /*
          * List<Integer> collect = list.stream().map(user -> user.getAge() *

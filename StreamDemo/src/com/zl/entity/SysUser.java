@@ -10,6 +10,14 @@ import com.zl.val.MyVal;
 
 public class SysUser {
 
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
     private Long id;
 
     private String userName;
@@ -31,7 +39,8 @@ public class SysUser {
     private String userInfo;
 
     private Date createTime;
-
+    
+    private String sex;
 
     @Override
     public String toString() {
@@ -41,6 +50,13 @@ public class SysUser {
     public SysUser() {
         super();
         // TODO Auto-generated constructor stub
+    }
+
+    public SysUser(Long id, String userName, int age) {
+        super();
+        this.id = id;
+        this.userName = userName;
+        this.age = age;
     }
 
     public Long getId() {
@@ -89,6 +105,14 @@ public class SysUser {
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+    }
+
+    public SysUser(Long id, String userName, int age, String sex) {
+        super();
+        this.id = id;
+        this.userName = userName;
+        this.age = age;
+        this.sex = sex;
     }
 
 }
