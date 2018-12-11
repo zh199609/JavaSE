@@ -1,0 +1,30 @@
+              InputStream(被装饰者抽象主件)
+FilterInputStream（装饰者）  FileInputStream和FileOutputStream    被装饰者具体实现
+BufferedInputStream（装饰者实现)
+
+java.io中很多使用了装饰者模式
+举个例子:FilterInputStream继承(实现)了InputStream,同时,BufferedInputStream继承了FilterInputStream,
+1,被装饰者抽象组件:即最顶层的基类InputStream
+2.被装饰者具体实现ConcreteComponent：FileInputStream和FileOutputStream就是它的实现
+3.装饰者Decorator:FilterInputStream中有一个InputStream的实例和构造方法传入InputStream对象
+    protected volatile InputStream in;
+    protected FilterInputStream(InputStream in) {
+        this.in = in;
+    }
+4.装饰者实现:在   BufferedInputStream  中有构造方法传入InputStream对象,实现了装饰
+    public BufferedInputStream(InputStream in, int size) {
+        super(in);
+        if (size <= 0) {
+            throw new IllegalArgumentException("Buffer size <= 0");
+        }
+        buf = new byte[size];
+    }
+这个构造方法,对比上面的做面包流程,可以惊奇的发现是一模一样的. (可以将)
+1.InputStream-->IBread
+    (这里就是InputStream,没什么好说的)
+2.FileInputStream-->NormalBread
+3.FilterInputStream-->AbstractBread
+  (实现Component,这里是InputStram.它里面必然有一个指向Component的引用,这个引用就是InputStream的实例)
+4. BufferedInputStream  --> CornDecorator
+    (装饰者实现,:用来装饰最基本的类,对I传入的nputStream进行了装饰)
+  (BufferedInputStream 的super(in)就像CornDecorator中的kneadFlour()方法,也有super.kneadFlour();,只是这里IO流中用在了构造方法 )
