@@ -49,7 +49,7 @@ public class StreanPractice {
 
         List<? extends Number> aaa = new ArrayList<Integer>();
         Integer integer = new Integer(1);
-        aaa.add(integer);
+        //aaa.add(integer);
     }
 
 }

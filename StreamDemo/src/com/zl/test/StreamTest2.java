@@ -42,10 +42,19 @@ public class StreamTest2 {
         //Optional<SysUser> min = list.stream().max(Comparator.comparing(SysUser::getAge));
         
         //并行处理
+        long start = System.currentTimeMillis();
         Optional<SysUser> max = list.parallelStream().max(Comparator.comparing(SysUser::getAge));
-        
+        long end = System.currentTimeMillis();
+        System.out.println(end-start);
+
+        long start2 = System.currentTimeMillis();
+        Optional<SysUser> max2 = list.stream().max(Comparator.comparing(SysUser::getAge));
+        long end2 = System.currentTimeMillis();
+        System.out.println(end2-start2);
+
         System.err.println(max.get());
-        
+        System.err.println(max2.get());
+
         //sorted.forEach(System.out::println);
         
         

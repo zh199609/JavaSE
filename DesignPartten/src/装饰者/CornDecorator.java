@@ -1,5 +1,7 @@
 package 装饰者;
 
+import java.util.TreeSet;
+
 /**
  * @Author
  * @Description
@@ -10,6 +12,7 @@ public class CornDecorator extends AbstractBread {
 
     public CornDecorator(IBread iBread) {
         super(iBread);
+        TreeSet<String> objects = new TreeSet<>();
     }
     public void paint(){
         System.out.println("添加柠檬黄的着色剂");
@@ -20,4 +23,5 @@ public class CornDecorator extends AbstractBread {
         this.paint();
         super.kneadFlour();
     }
+    
 }

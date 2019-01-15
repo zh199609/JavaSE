@@ -40,7 +40,8 @@ public class OptationTest {
             list.add(sysUser);
         }
         
-        /*可以看到有三个参数，第一个参数就是key的Function了，第二个参数是一个map工厂，也就是最终结果的容器，一般默认的是采用的HashMap::new，最后一个参数很重要是一个downstream，类型是Collector，也是一个收集器，那就是说，这三个参数其实就是为了解决分组问题的
+        /*可以看到有三个参数，第一个参数就是key的Function了，第二个参数是一个map工厂，也就是最终结果的容器，一般默认的是采用的HashMap::new，
+          最后一个参数很重要是一个downstream，类型是Collector，也是一个收集器，那就是说，这三个参数其实就是为了解决分组问题的
 
                                 第一个参数：分组按照什么分类
                                 
@@ -53,15 +54,16 @@ public class OptationTest {
         
         //分组
         /*Map<String, List<SysUser>> collect2 = list.stream().collect(Collectors.groupingBy(SysUser::getUserName,Collectors.toList()));
-        System.out.println(collect2);
+        System.out.println(collect2);*/
         
         System.out.println("================");
-        Map<String, Map<String, Long>> map = list.stream().collect(Collectors.groupingBy(SysUser::getUserName,
+        /*Map<String, Map<String, Long>> map = list.stream().collect(Collectors.groupingBy(SysUser::getUserName,
                 Collectors.groupingBy(SysUser::getUserPassword,Collectors.counting())));
         map.forEach((K,V)->System.out.println("k:"+K+"--V:"+V));
-        System.out.println("==================================================================");
+        System.out.println("==================================================================");*/
         
-        Map<String, List<SysUser>> collect = list.stream().collect(Collectors.groupingBy(SysUser::getUserName));
+        /*Map<String, List<SysUser>> collect = list.stream().collect(Collectors.groupingBy(SysUser::getUserName));//默认使用toList()
+
         Stream<Entry<String, List<SysUser>>> stream = collect.entrySet().stream();
         stream.forEach(m->m.getValue());*/
         
@@ -70,8 +72,8 @@ public class OptationTest {
         System.err.println(collect2);*/
         
         //Function.identity()   value -> value   默认实现
-        /*Map<SysUser, Long> collect = list.stream().collect(Collectors.groupingBy(Function.identity(),Collectors.counting()));
-        System.err.println(collect);*/
+        Map<String, Long> collect = list.stream().collect(Collectors.groupingBy(SysUser::getUserName,Collectors.counting()));
+        System.err.println(collect);
         
         //分组 在求该分组下某个属性的和
         /*Map<String, Long> collect2 = list.stream().collect(Collectors.groupingBy(SysUser::getUserName,Collectors.summingLong(SysUser::getAge)));
@@ -79,7 +81,7 @@ public class OptationTest {
         System.err.println(collect3);*/
        
         
-        
+
         //去重
         /*List<SysUser> list2 = list.stream().collect(collectingAndThen(toCollection(()->new TreeSet<>(Comparator.comparing(SysUser::getAge))), ArrayList::new));
         System.out.println("去重后list:"+list2);*/

@@ -1,6 +1,8 @@
 package com.zl.test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
 import java.util.function.Supplier;
@@ -10,6 +12,9 @@ import java.util.stream.Stream;
 import org.junit.Test;
 
 import com.zl.entity.SysUser;
+
+import static java.util.Comparator.comparing;
+import static java.util.stream.Collectors.toList;
 
 public class StreamTest {
     static int a = 1;
@@ -44,11 +49,18 @@ public class StreamTest {
          * 5).collect(toList()); System.err.println(collect2);
          */
 
+         //peek接收一个没有返回值的λ表达式，可以做一些输出，外部处理等。map接收一个有返回值的λ表达式，之后Stream的泛型类型将转换为map参数λ表达式返回的类型
         /*
          * List<SysUser> collect3 =
          * list.stream().peek(user->System.err.println(user.getAge())).collect(toList())
          * ; System.err.println(collect3);
          */
+
+        list.stream().peek(user->{
+
+
+
+        });
 
         /*
          * List<SysUser> collect = list.stream().peek(user->{ user.setAge(10);
@@ -66,17 +78,33 @@ public class StreamTest {
          * System.out.println(findFirst.get());
          */
 
-        /*
-         * List<Integer> collect =
-         * list.stream().map(SysUser::getAge).limit(110).skip(5).collect(toList());
-         * System.err.println(collect);
-         */
+        //limit(N):对一个stream进行截取，获取其前N个元素，如果原stream中包含元素的个数小于N，那就获取其所有的元素。
+        //skip(N):返回一个丢弃原stream的前N个元素后剩下元素组成的新Stream，如原Strea– allMatch：是不是Stream中的所有元素都满足给定的匹配条件m中包含的元素个数小于N，那么返回空Stream
+          /*List<Integer> collect2 =
+          list.stream().map(SysUser::getAge).limit(7).skip(0).collect(toList());
+          System.err.println(collect2);*/
+
+        //其实不是这样的，转换操作都是lazy的，多个转换操作只会在汇聚操作（见下节）的时候融合起来，一次循环完成
+
+        //汇聚（Reduce）
+
+        SysUser sysUser1 = list.stream().reduce((sysUser, sysUser2) -> {
+            return sysUser2;
+        }).get();
+        System.out.println(sysUser1);
+
+
+
 
         /*
          * List<SysUser> collect = list.stream().sorted((u1,u2)->(
          * u1.getUserName().compareTo(u2.getUserName())
          * )).limit(156).skip(5).collect(toList()); System.err.println(collect);
          */
+
+        list.stream().sorted((o1, o2) -> o1.getAge()-o2.getAge());
+        list.stream().sorted(comparing(SysUser::getAge));
+
 
         // list.stream().anyMatch(predicate)
         // list.stream().noneMatch(predicate)
@@ -88,7 +116,7 @@ public class StreamTest {
         // 生成随机数
         Random seed = new Random();
         Supplier<Integer> random = seed::nextInt;
-        List<Integer> collect = Stream.generate(random).limit(10).collect(Collectors.toList());
+        List<Integer> collect = Stream.generate(random).limit(10).collect(toList());
         System.err.println(collect);
         
         //Stream.iterate(seed, f)
