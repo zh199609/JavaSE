@@ -1,0 +1,6 @@
+常用ExecutorService：
+ FixedThreadPool：线程数固定 
+CachedThreadPool：线程数根据任务动态调整 
+SingleThreadExecutor：仅单线程执行 
+必须调用shutdown()关闭ExecutorService 
+ScheduledThreadPool可以定期调度多个任务（可取代Timer）

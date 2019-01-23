@@ -1,0 +1,4 @@
+Future表示一个未来可能会返回的结果
+提交Callable任务，可以获得一个Future对象 可以用Future在将来某个时刻获取结果
+
+Runnable没有返回结果
