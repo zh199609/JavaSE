@@ -45,28 +45,6 @@ public class Person {
         System.out.println("-----------------");
         System.out.println(threadLocal.get());
 
-
-
-        String str = "I am a coder";
-        int length = str.length();
-        String s[] = new String[10];
-        String ss = "";
-        for(int i=0;i<length;i++){
-            char c = str.charAt(i);
-
-            if(!Character.isSpace(c)){
-                ss= ss+c;
-            } else {
-                //把ss放到s数组中  ss清空
-            }
-        }
-
-
         System.out.println(Integer.valueOf(7).compareTo(Integer.valueOf("7")));
     }
-    //deilaiwen 6300  xia 6300  kasha   6300    kate3
-
-
-
-
 }
