@@ -6,7 +6,7 @@ package com.zl.concurrent.singleton;
  * @Date
  */
 public class Singleton1 {
-    //可以保证线程安全
+    //可以保证线程安全   静态内部类
     private static class Holder{
         private static Singleton1 singleton1 = new Singleton1();
     }
@@ -19,9 +19,7 @@ public class Singleton1 {
     }
 
     public static void main(String[] args) {
-        String str = "12345a67";
-        String start = "0";
-        String end = "9";
+        String str = "12344986904869054869058667";
         int result = 0;
         int length = str.length();
         for (int i=0;i<length;i++) {
