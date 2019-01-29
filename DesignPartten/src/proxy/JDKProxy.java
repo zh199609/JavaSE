@@ -13,17 +13,14 @@ public class JDKProxy {
 
     public static void main(String[] args) {
         JDKProxy jdkProxy = new JDKProxy();
-        //
         jdkProxy.main111();
     }
 
     public void main111() {
         BookFacade target = new BookFacadeImpl();
         BookFacadeProxy bookFacadeProxy = new BookFacadeProxy(target);
-        Class<? extends BookFacade> aClass = target.getClass();
-        System.out.println(target.getClass().getInterfaces());
-        //BookFacade proxyObject = (BookFacade) Proxy.newProxyInstance(this.getClass().getClassLoader(), target.getClass().getInterfaces(), bookFacadeProxy);
-        //proxyObject.addBook();
+        BookFacade proxyObject = (BookFacade) Proxy.newProxyInstance(this.getClass().getClassLoader(), target.getClass().getInterfaces(), bookFacadeProxy);
+        proxyObject.addBook();
     }
 }
 
