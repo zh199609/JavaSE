@@ -21,7 +21,7 @@ public class TestController {
 
     @RequestMapping("/test")
     public String test2(){
-        //master
+        //master master
         return "test2";
     }
 }
