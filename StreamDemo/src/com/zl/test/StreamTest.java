@@ -38,34 +38,29 @@ public class StreamTest {
        
           /*List<Integer> collect2 =
           list.stream().map(SysUser::getAge).collect(Collectors.toList());
-          System.err.println(collect2);/*
-         
+          System.err.println(collect2);
+         */
 
         /*
          * List<Integer> collect = list.stream().map(user -> user.getAge() *
          * 6).collect(toList()); System.err.println(collect);
-         * 
+         *
          * List<SysUser> collect2 = list.stream().filter(user -> user.getAge() >
          * 5).collect(toList()); System.err.println(collect2);
          */
 
-         //peek接收一个没有返回值的λ表达式，可以做一些输出，外部处理等。map接收一个有返回值的λ表达式，之后Stream的泛型类型将转换为map参数λ表达式返回的类型
-        /*
-         * List<SysUser> collect3 =
-         * list.stream().peek(user->System.err.println(user.getAge())).collect(toList())
-         * ; System.err.println(collect3);
-         */
+        //peek接收一个没有返回值的λ表达式，可以做一些输出，外部处理等。map接收一个有返回值的λ表达式，之后Stream的泛型类型将转换为map参数λ表达式返回的类型
 
-        list.stream().peek(user->{
+       /* List<SysUser> collect3 =
+                list.stream().peek(user -> System.err.println(user.getAge())).collect(toList());
+        System.err.println("peek------"+collect3);*/
 
 
+        /*List<SysUser> collect2 = list.stream().peek(user -> {
+            user.setAge(10);
+        }).collect(toList());
+        System.err.println("---------------" + collect2);*/
 
-        });
-
-        /*
-         * List<SysUser> collect = list.stream().peek(user->{ user.setAge(10);
-         * }).collect(toList()); System.err.println(collect);
-         */
 
         /*
          * String string =null; Optional.ofNullable(string);
@@ -102,7 +97,7 @@ public class StreamTest {
          * )).limit(156).skip(5).collect(toList()); System.err.println(collect);
          */
 
-        list.stream().sorted((o1, o2) -> o1.getAge()-o2.getAge());
+        list.stream().sorted((o1, o2) -> o1.getAge() - o2.getAge());
         list.stream().sorted(comparing(SysUser::getAge));
 
 
@@ -118,7 +113,7 @@ public class StreamTest {
         Supplier<Integer> random = seed::nextInt;
         List<Integer> collect = Stream.generate(random).limit(10).collect(toList());
         System.err.println(collect);
-        
+
         //Stream.iterate(seed, f)
         SysUser sysUser = list.get(0);
         //int a =sysUser::getAge
