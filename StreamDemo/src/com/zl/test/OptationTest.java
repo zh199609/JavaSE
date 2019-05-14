@@ -13,7 +13,6 @@ import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import org.junit.Test;
 
 import static java.util.stream.Collectors.*;
 

@@ -3,11 +3,11 @@ package com.zl.lambda.方法引用;
 import java.time.LocalDate;
 import java.util.Arrays;
 
-import org.junit.Test;
+
 
 public class Main {
 
-    @Test
+
     public void test01() {
         Person[] pArr = new Person[]{
                 new Person("003", LocalDate.of(2016,9,1)),
@@ -20,7 +20,7 @@ public class Main {
         System.err.println(LocalDate.of(2016,12,1).compareTo(LocalDate.of(2016,1,1)));
     }
     
-    @Test
+
     public void test02() {
         Person[] pArr = new Person[]{
                 new Person("003", LocalDate.of(2016,9,1)),

@@ -14,7 +14,6 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import org.junit.Test;
 
 import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
 
@@ -39,7 +38,7 @@ public class LambdaTest {
 
     }
 
-    @Test
+
     public void test() {
         List<Person> persons = new ArrayList<>();
         persons.add(new Person("z", new Date()));
@@ -52,7 +51,7 @@ public class LambdaTest {
         System.err.println(persons);
     }
 
-    @Test
+
     public void test1() {
 
         Target target1 = new Target(190);
@@ -68,7 +67,7 @@ public class LambdaTest {
     map会将一个元素变成一个新的Stream
             但是flatMap会将结果打平，得到一个单个元素,返回的类型必须是stream*/
     //map和flatmap
-    @Test
+
     public void test2() {
         List<String> list = Arrays.asList("hello welcome", "world hello", "hello world",
                 "hello world welcome");

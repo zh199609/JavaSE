@@ -9,7 +9,6 @@ import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import org.junit.Test;
 
 import com.zl.entity.SysUser;
 
@@ -19,7 +18,7 @@ import static java.util.stream.Collectors.toList;
 public class StreamTest {
     static int a = 1;
 
-    @Test
+
     public void test01() {
         List<SysUser> list = new ArrayList<>();
         for (int i = 1; i < 10; i++) {
