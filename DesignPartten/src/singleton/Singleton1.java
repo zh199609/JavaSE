@@ -2,6 +2,8 @@ package singleton;
 
 public class Singleton1 {
 
+
+    
     private Singleton1() {
     }
 
