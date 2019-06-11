@@ -17,18 +17,23 @@ public class ReferenceCountGC {
     private byte[] bigSize = new byte[2 * _1MB];
 
     public static void main(String[] args) throws InterruptedException {
-        Integer integer = Integer.valueOf("56494");
         ReferenceCountGC referenceCountGC = new ReferenceCountGC();
+        /*ReferenceCountGC referenceCountGC1 = new ReferenceCountGC();
+        referenceCountGC = referenceCountGC1;
+        referenceCountGC1 = referenceCountGC;
+
+        referenceCountGC = null;
+        referenceCountGC1 = null;
+        System.gc();*/
         List<ReferenceCountGC> list = new ArrayList<>();
         System.out.println("我还活着");
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < 50; i++) {
             ReferenceCountGC referenceCountGC1 = new ReferenceCountGC();
-            list.add(referenceCountGC);
+            list.add(referenceCountGC1);
         }
         list = null;
         Thread.sleep(1000);
         System.gc();
         System.out.println("我死了…………");
-
     }
 }
