@@ -22,12 +22,17 @@ public class testTenuringThreshold2 {
     public static void main(String[] args) {
         byte[] allocation1, allocation2, allocation3, allocation4;
 
+        //allocation1 = new byte[_1MB / 4];
+        //allocation1 = new byte[_1MB / 4];
         allocation3 = new byte[_1MB * 6];
 
         allocation3 = new byte[_1MB * 3];
 
         allocation4 = new byte[_1MB * 3];
 
-
+        //BOM未分配    请先总表保存（营业管理权限去掉）
+//        -XX:+PrintGCDetils
     }
+
+
 }

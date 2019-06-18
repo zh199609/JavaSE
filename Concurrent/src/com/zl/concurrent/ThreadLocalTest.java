@@ -37,8 +37,8 @@ public class ThreadLocalTest {
         thread1.start();
         thread1.join();
 
-        System.out.println(test.getLong());
-        System.out.println(test.getString());
+       /* System.out.println(test.getLong());
+        System.out.println(test.getString())*/;
     }
     public void set() {
         longLocal.set(Thread.currentThread().getId());
