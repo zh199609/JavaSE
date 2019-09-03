@@ -96,7 +96,16 @@ public class ThreadLocalTest {
         DecimalFormat df = new DecimalFormat("#,##0.###;-#,##0.###");
         DecimalFormat df1 = new DecimalFormat("0.###");
         System.out.println("#0.00模板格式化后"+df.format(9595.94));
+    }
 
+    @Test
+    public void testThis(){
+        ThreadLocalTest threadLocalTest = new ThreadLocalTest();
+        System.out.println(this);
+        System.out.println(threadLocalTest);
 
     }
+
+
+
 }
