@@ -44,3 +44,44 @@
 
 ​	当虚拟机启动时，用户需指定一个要执行的主类（包含main方法的那个类），虚拟机会先初始化这个主类。
 
+局部变量表
+
+​	Slot(一般32位虚拟机32位)      Byte Boolean short char int float double long reference 
+
+​	double long 需多个slot   出现线程安全性问题：多线程、共享资源，对共享资源非原子性操作
+
+
+
+happens-before
+
+​	用来指定两个操作之间的执行顺序，提供跨线程的内存可见性
+
+​	程序顺序规则：当线程中每个操作，总是前一个操作happens-before后一个操作
+
+​	监视器锁规则：对一个锁的解锁happens-before随后对这个锁的加锁
+
+​	volatile规则：对一个volatil;e域的写，happens-before于任意后续这个volatile域的读
+
+​	start规则、
+
+​	join规则
+
+重排序
+
+​	数据依赖性
+
+###### volatile和synchronize
+
+​	线程安全的两个方面：执行控制和内存可见
+
+​	**并发中需要解决的三个问题：可见性、原子性、有序性**
+
+​	synchronize解决的是执行控制的问题，它还会创建一个内存屏障，内存屏障指令保证了所有cou操作结果都会直接刷到主存中，从而保证了操作的内存可见性，同时也使得这个锁的线程的所有操作都happens-before于随后获得这个锁的线程的操作
+
+​	volatile解决的是内存可见性的问题，会使得所有对volatile变量的读写都会直接刷到主内存，即保证了变量的可见性。
+
+​	volatile本质是告诉jvm当前变量在寄存器中的值是不确定的，需要从主内存读取，synchronize则是锁定当前变量，只有当前线程能访问。volatile不能保证原子性
+
+###### 支撑java内存模型的基础原理
+
+​	指令重排序、数据依赖性、as-if-serial、内存屏障、happens-before
