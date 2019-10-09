@@ -6,7 +6,6 @@ package com.zl.entity;
 import java.util.Arrays;
 import java.util.Date;
 
-import com.zl.val.MyVal;
 
 public class SysUser {
 
@@ -21,11 +20,11 @@ public class SysUser {
     private Long id;
 
     private String userName;
-    
-    @MyVal(description="密码",MaxNum=7)
+
     private String userPassword;
 
     private int age;
+
     public int getAge() {
         return age;
     }
@@ -39,7 +38,7 @@ public class SysUser {
     private String userInfo;
 
     private Date createTime;
-    
+
     private String sex;
 
     @Override

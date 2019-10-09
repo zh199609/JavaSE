@@ -20,7 +20,7 @@ import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
 public class LambdaTest {
 
     public static void main(String[] args) {
-        TestInterface interface1 = String::valueOf;
+        /*TestInterface interface1 = String::valueOf;
 
         String sayHello = interface1.sayHello("zl");
         System.err.println(sayHello);
@@ -34,7 +34,11 @@ public class LambdaTest {
         System.out.println("--------------------------------------");
 
         TestInterface interface2 = "asf"::concat;
-        System.err.println(interface2.sayHello("zl"));
+        System.err.println(interface2.sayHello("zl"));*/
+
+        LambdaTest lambdaTest = new LambdaTest();
+        lambdaTest.test2();
+
 
     }
 
@@ -47,7 +51,7 @@ public class LambdaTest {
 
         //persons.sort((a, b) -> b.getName().compareTo(a.getName()));
         Comparator<Person> comparing = Comparator.comparing(Person::getName);
-        Collections.sort(persons,Comparator.comparing(Person::getName));
+        Collections.sort(persons, Comparator.comparing(Person::getName));
         System.err.println(persons);
     }
 
@@ -59,42 +63,40 @@ public class LambdaTest {
         // 引用实例方法
         MyInterface ins1 = Target::compare;
         System.out.println(ins1.compare(target1, target2));
-        
+
         MyInterface.printHello();
     }
-    
+
     /*Stream的map和flatMap的区别:
     map会将一个元素变成一个新的Stream
             但是flatMap会将结果打平，得到一个单个元素,返回的类型必须是stream*/
     //map和flatmap
-
     public void test2() {
         List<String> list = Arrays.asList("hello welcome", "world hello", "hello world",
                 "hello world welcome");
-        List<Stream<String>> collect = list.stream().map(item->Arrays.stream(item.split(" "))).distinct().collect(Collectors.toList());
-        System.out.println("size:"+collect.size());
-        collect.forEach(a->a.forEach(System.out::println));
+        List<Stream<String>> collect = list.stream().map(item -> Arrays.stream(item.split(" "))).distinct().collect(Collectors.toList());
+        System.out.println("size:" + collect.size());
+        collect.forEach(a -> a.forEach(System.out::println));
         System.out.println("----------------------------------------------------");
-        Stream<String> distinct = list.stream().flatMap(item->Arrays.stream(item.split(" "))).distinct();
+        Stream<String> distinct = list.stream().flatMap(item -> Arrays.stream(item.split(" "))).distinct();
         distinct.forEach(System.out::println);
         System.out.println("----------------------------------------------------");
         List<String[]> collect2 = list.stream().map(this::map).collect(Collectors.toList());
-        collect2.forEach(a->System.err.println(Arrays.asList(a)));
+        collect2.forEach(a -> System.err.println(Arrays.asList(a)));
         System.out.println("----------------------------------------------------");
-        List<String> collect3 = list.stream().map(item->item.split(" ")).flatMap(Arrays::stream).distinct().collect(Collectors.toList());
+        List<String> collect3 = list.stream().map(item -> item.split(" ")).flatMap(Arrays::stream).distinct().collect(Collectors.toList());
         collect3.forEach(System.out::println);
-        
         System.out.println("------------------------");
-        list.stream().map(str->str.split("")).map(str->Arrays.stream(str));
-        
+        list.stream().map(str -> str.split("")).map(str -> Arrays.stream(str));
+
     }
-    
-    
+
+
     public String[] map(String string) {
         return string.split(" ");
     }
-    
-    
+
+
     public void test3() {
         try {
             new FileInputStream("");
